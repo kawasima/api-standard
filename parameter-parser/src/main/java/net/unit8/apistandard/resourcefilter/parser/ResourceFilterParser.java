@@ -104,6 +104,11 @@ public class ResourceFilterParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitFields(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitFields(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FieldsContext fields() throws RecognitionException {
@@ -160,6 +165,11 @@ public class ResourceFilterParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitFields_expression(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitFields_expression(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Fields_expressionContext fields_expression() throws RecognitionException {
@@ -199,6 +209,11 @@ public class ResourceFilterParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitNegation(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitNegation(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -241,6 +256,11 @@ public class ResourceFilterParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitField_set(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitField_set(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -301,6 +321,11 @@ public class ResourceFilterParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitQualified_field(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitQualified_field(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Qualified_fieldContext qualified_field() throws RecognitionException {
@@ -355,6 +380,11 @@ public class ResourceFilterParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ResourceFilterListener ) ((ResourceFilterListener)listener).exitField(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ResourceFilterVisitor ) return ((ResourceFilterVisitor<? extends T>)visitor).visitField(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

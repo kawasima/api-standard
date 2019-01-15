@@ -1,7 +1,7 @@
 grammar ResourceFilter;
 
 @header {
-package net.unit8.apistandard.resourcefilter;
+package net.unit8.apistandard.resourcefilter.parser;
 }
 
 fields : negation fields_expression | fields_expression;

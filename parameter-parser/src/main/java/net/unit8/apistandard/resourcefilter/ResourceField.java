@@ -32,6 +32,16 @@ public class ResourceField {
     }
 
     @Override
+    public boolean equals(Object another) {
+        if (another == null || !(another instanceof ResourceField))
+            return false;
+        ResourceField anotherField = (ResourceField) another;
+        return anotherField.getName().equals(name)
+                && ((children == null && anotherField.getChildren().isEmpty())
+                || (children.equals(anotherField.getChildren())));
+
+    }
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(name);
